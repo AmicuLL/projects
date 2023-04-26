@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lab9_Berfela Ionut</title>
+
+<link rel="stylesheet" href="style.css">
+<link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Akaya Kanadaka">
+<link href='https://fonts.googleapis.com/css?family=Barlow Condensed' rel='stylesheet'>
+<link rel="icon" type="image/x-icon" href="https://miro.medium.com/max/800/1*M_GDn6RXZSZC66kvrMHh5Q.png">
+<!--
+<script type="text/javascript" src="clasa.js"></script>
+<script type="text/javascript" src="sortAddDelStud.js"></script>
+<script type="text/javascript" src="addDelNoteDinamic.js"></script>
+<script type="text/javascript" src="scriptFunctiiMeniu.js"></script>
+<script type="text/javascript" src="lab9_ex4.js"></script>
+-->
+<!-- Eu am facut tema direct... am impartit fisierul js ulterior... daca am stricat ceva si nu mai functioneaza, va rog
+sa decomentati lini de la 22 :) -->
+
+
+<script type="text/javascript" src="script.js"></script> 
+
+</head>
+<body>
+<div class="header">
+        <h2 style="float: left;">TWBD Lab 09</h2>
+        <h4 style="float: right; text-align: right;"> Limbajul JS: variabile, functii, clase, atribute, metode, expresii lambda, exceptii;<br> JS language: variables, functions, classes, attributes, methods, lambda expressions, exceptions.</h4>
+</div>
+<div class="container">
+        <div class="containerStanga">
+                <h4>1. Implementați o clasă JS numită Student cu următoarele atribute:</h4>
+                        <ol>
+                                <li>nume</li>
+                                <li>prenume</li>
+                                <li>data_nasterii</li>
+                                <li>foaie_matricola (șir de valori numerice)</li>
+                        </ol>
+                        <h1 id="intData"></h1>
+                <h4>Clasa are metodele:</h4>
+                        <ol>
+                                <li>afiseazaVarsta(): returnează vârsta calculată în funcție de data nașterii</li>
+                                <li>afiseazaNotele(): returnează un șir de caractere obținut prin alăturarea și separarea cu ‘,’ a tuturor notelor existente</li>
+                                <li>calculeazaMedia(): returnează media aritmetică a notelor existente</li>
+                                <li>adaugaNota(nota_noua): adaugă în lista de note noua valoare primită ca parametru</li>
+                        </ol>
+                <h4>Să se definească un șir de 3 studenți cu datele predefinite. Să se ordoneze și să se afișeze studenții:</h4>
+                        <ul>
+                                <li>alfabetic, ținând cont de nume și prenume</li>
+                                <li>după medii</li>
+                                <li>după vârstă</li>
+                        </ul>
+                <h5>1’. Se vor adăuga noi valori pt. note și se va re-apela ordonarea după medii.<br>
+                1’’. Se vor schimba numele anumitor studenți și se va re-apela ordonarea alfabetică.<br>
+                1’’’. Se vor adăuga noi studenți în listă. Se vor șterge studenți din listă. Se vor afișa noile liste rezultate.</h6>
+                <button style="margin-left: 3%;" class="butoane" type="button" onclick = "afisareMeniuAdaugareStudenti()"> Adaugare student </button> 
+                <div class="tooltip" style="display:inline-block;">&#128712;<span class="tooltiptext">Adaugare student:<br> Se pot adauga studenti noi cu conditia ca numele, prenumele si data nasterii sa nu fie nule.<br>Numele si prenumele trebuie sa aibe cel putin 2 caractere si fara cifre. Data nasterii trebuie sa fie incat studentul sa aibe minim 18 ani.</span></div>
+                <button style="margin-left: 7%;" class="butoane" type="submit" onclick = "afisareMeniuModificareStudenti()"> Modificare Studenti </button>
+                <div class="tooltip" style="display:inline-block;">&#128712;<span class="tooltiptext">Modificare studenti:<br> Se pot modifica datele studentilor existenti.<br>Se pot actualiza notele unui student(stergere/adaugare/actualizarea integrala a notelor).<br>Stergerea studentilor: e posibila stergerea individuala, cat si stergerea integrala.</span></div>
+                <button style="margin-left: 7%;" class="butoane" type="submit" onclick = "afisareMeniuAfisStudenti()"> Afisare studenti </button>
+                <div class="tooltip" style="display:inline-block;">&#128712;<span class="tooltiptext">Afisare studenti:<br> Sunt afisati toti studentii existenti, fara acces la modificarea informatiilor din casete(strict afisare).<br>In dreapta sus sunt 3 butoane care ofera posibilitatea sortarii studentilor dupa un anumit criteriu(sortare dupa nume, sortare dupa medie, respectiv sortare dupa varsta).</span></div>
+        </div>
+        <div class="containerDreapta"> 
+                <!--ADAUGARE DATE-->
+                <div id="formDateStudenti">
+                <h2> Adaugare Studenti </h2>
+                <form>
+                  <label>Nume:</label><br>
+                  <input type="text" id="AddNumeStudent">&emsp;<span id = "addmesajeroaren" style="color:red"> </span><br>
+                  <label>Prenume:</label><br>
+                  <input type="text" id="AddPrenumeStudent">&emsp;<span id = "addmesajeroarep" style="color:red"> </span><br>
+                  <label>Data Nasterii:</label><br>
+                  <input type="date" id="AddintData">&emsp;<span id = "addmesajeroared" style="color:red"> </span><br>
+                  <label>Foaie matricola:</label><br>
+                  <input type="text" id="AddFoaiaMatStud"><br><br>
+                  <button class="butoane" type="button" onclick="adaugareStudent()">Adauga Studentul</button>
+                  <button class="butoane" type="submit" onclick="AdaugareNoteStud(event)">Adaugare Note</button>
+                </form></div>
+                <!--MODIFICARE DATE-->
+                <div id="formModDateStudenti" style="display: none;">
+                        <h2> Modificare Studenti </h2>
+                        <label>Ce student doriti sa modificati?&emsp;</label><input type="text" id="modStud" size="1"><button class="butoane" onclick="modificareStudent(event)">Cautare</button>&emsp;<span id = "mesajeroare" style="color:red"> </span>
+                <form>
+                  <label>Nume:</label><br>
+                  <input type="text" id="MNumeStudent"> <button class="butoane" onclick="stergereStudent(event)">Stergeti Studentul</button><div class="tooltip" style="display:inline-block; margin: 4px;"><b>&#128712;</b><span class="tooltiptext">Dupa ce ati introdus index-ul studentului si l-ati gasit, la apasarea acestui buton studentul o sa fie sters fara o confirmare aditionala!</span></div>
+                  <button style="margin-left: 10px;" onClick="stergereToti(event)" class="butoane">Stergeti toti Studentii</button><div class="tooltip" style="display:inline-block; margin: 4px;"><b>&#128712;</b><span class="tooltiptext">Apasarea acestui buton o sa stearga toti studentii fara a cere confirmare aditionala!</span></div><br>
+                  <label>Prenume:</label><br>
+                  <input type="text" id="MPrenumeStudent"><br>
+                  <label>Data Nasterii:</label><br>
+                  <input type="date" id="MintData"><br>
+                  <label>Foaie matricola:</label><br>
+                  <input type="text" id="MFoaiaMatStud"><br><br>
+                  <button class="butoane" type="button" id="ActualizareDateStud">Modifica</button>
+                  <button class="butoane" type="submit" onclick="AdaugareNoteStud(event)">Adaugare Note</button>
+                  <button class="butoane" type="submit" onClick="ActualizareNoteStud(event)">Actualizare Note</button>
+                </form>
+                <!--Actualizare Note-->
+                <div id="AfisareANoteStudenti" style="display: none;">
+                        <br><div class="tooltip" style="display:inline-block; margin: 4px;"><b>&#128712;</b><span class="tooltiptext">Se introduce pozitia notei(ex: [5,8,9], pentru a elimina nota 8, se introduce 2.) si dupa se introduce indexul studentului(indexul studentului se extrage din nume. ex:[Student 1. Note:], indexul este 1) si dupa se apasa butonul "Stergeti nota".</span></div>
+                        <label style = "margin: 5px;">Pozitia notei:</label><input type="text" id="pozNotaStud" size="1">
+                        <!--Stergere nota pentru un student selectat din input form-->
+                        <label style = "margin: 10px;">Nr.Student pt care se face stergerea:</label><input type="text" id="idStudStergereNota" size="1"><button class = "butoane" id="stergereNota" onClick="FstergereNota(event)">Stergeti nota</button><br>
+                        <div id="sort2"><form style="margin-top:1%;" id="actNote1">
+                                <label>Student 1. Note:</label><br>
+                                <input type="text" id="NoteAStudent1">
+                                <button class ="butoane" id="selActualizareN1" onClick="returnId2(event,this.id)">Actualizare</button>
+                        </form></div>
+                        <div class="tooltip" style="display:inline-block; margin: 4px;"><b>&#128712;Actualizare note</b><span class="tooltiptext">La apasarea butonului: "Actualizare" o sa fie inlocuite toate notele studentului cu notele introduse in casuta. Se pot introduce notele in modul:<br>[10,6,9 (cu virgula intre note)<br>10 6 9 (cu spatiu intre note)<br>10/6/9 (cu slash intre note)<br>10\6\9 (cu back-slash intre)<br>10~6~9 (separarea notelor cu tilda)]</span></div>
+                </div>
+                </div>
+                <!--AFISARE-->
+                <div id="formAfisDateStudenti" style="display: none;">
+                <button class="butoane" onClick="sortAlfabetica(event)" id="ordonareAlfabetica" style="float:right;">Ordonare Alfabetica</button>
+                <button class="butoane" onClick="sortMedii(event)" id="ordonareMedii" style="float:right;">Ordonare dupa Medii</button>
+                <button class="butoane" onClick="sortVarsta(event)" id="ordonareVarsta" style="float:right;">Ordonare dupa Varsta</button>
+                <div id="sort"><div id="AfisareStudenti1">
+                        <h2> Afisare Student 1</h2>
+                <form>
+                  <label>Nume:</label><br>
+                  <input type="text" id="NumeStudent1" readonly>        &emsp;&emsp;<label>Note:</label><input type="text" id="NoteStudent1" readonly><br>
+                  <label>Prenume:</label><br>
+                  <input type="text" id="PrenumeStudent1" readonly>        &emsp;&emsp;<label>Media:</label><input type="text" size="4" id="MediaStudent1" readonly><br><br>
+                  <label>Data Nasterii:</label><br>
+                  <input type="date" id="intData1" readonlys><br>
+                  <label>Varsta:</label><br>
+                  <input type="text" size="2" id="varstaStud1" readonly><br>
+                  <label>Foaie matricola:</label><br>
+                  <input type="text" id="FoaiaMatStud1" readonly><br><br>
+                </form></div>
+                </div></div>
+                <!--AFISARE NOTE MENIU-->
+                <div id="AfisareNoteStudenti" style="display: none;">
+                        <div id="sort1"><form style="margin-top:1%;" id="aNote1">
+                                <label id ="lNote1">Student 1. Note:</label><br>
+                                <input type="text" id="addNoteStudent1"><br>
+                                <button class = "butoane" id="selAdaugareN1" onClick="returnId(event,this.id)">Adaugare</button>
+                        </form></div>
+                </div>
+        </div>
+</div>
+<div class="container">
+        <div class="containerStanga">
+                <h4>2. Să se modifice metodele existente în clasa definită la pct. 1 și să se înlocuiască cu funcții lambda (unde este posibil).</h4>
+        </div>
+</div>
+<div class="container">
+        <div class="containerStanga">
+                <h4>3. Să se completeze clasa cu metode setter pt. atributele nume, prenume și data_nasterii. Se vor trata exceptiile date de:</h4>
+                <ul>
+                        <li> siruri de caractere cu lungimea mai mică decât 2 sau care conțin caractere numerice;</li>
+                        <li>date de naștere mai recente de 18 ani.</li>
+                </ul>
+                <h5>Excepțiile se tratează prin setarea unor valori implicite și afișarea unor mesaje în consola browser-ului.</h5>
+        </div>
+</div>
+
+<div class="container">
+        <div class="containerStanga">
+                <h4>4. Să se implementeze o pagină web care afișează în mod dinamic o serie de elemente de tip div colorate cu toate valorile posibile (saturate) dintr-o paletă de culori.</h4>
+                <p>Se recomanda un refresh inainte de alt stil</p>
+                <br><button style="margin-left:2%;" class="butoane" onClick="ex4Stil1()">Stil 1</button><button style="margin-left:2%;" class="butoane" onClick="ex4Stil2()">Stil 2</button><button style="margin-left:2%;" class="butoane" id="" onClick="ex4Stil3()">Stil 3</button>
+        </div>
+        <div class="containerDreapta"><div style="text-align:center; height: 350px;" id="idcontainerDreapta"> 
+                <div style="background-color: #5a80a3;" class="rainbow">
+                </div> 
+        </div></div>
+</div>
+<!-- Footer -->
+<div class="footer">
+        <div class="fData"><i class="fa fa-phone"></i>Telefon:&nbsp;<a href="tel:+40763210882">0763210882</a></div>
+        <div class="fData"><i class="fa fa-phone"></i>Telefon:&nbsp;<a href="tel:+40763210882">0743786678</a></div>
+        <div class="fData"><i class="fa fa-envelope"></i>Email:&nbsp;<a href="mailto:ionutberfela@gmail.com">ionutberfela@gmail.com</a></div>
+        <div class="fData"><i class="fa fa-facebook"></i>Facebook:&nbsp;<a href="https://www.facebook.com/berfelaionut/">Berfela Ionut</a></div>
+                <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Logo_Universitatea_Tehnic%C4%83_din_Cluj-Napoca.svg" alt="Footer UTCN"></a>
+        <p class="copyright fData">&copy;Berfela Ionut</p>
+</div>
+</body>
+</html>

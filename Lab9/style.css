@@ -1,0 +1,168 @@
+
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  max-height: 100%;
+  background-color: #1974D2;
+}
+.header {
+        height: 8vh;
+        background-color: #6D9BC5;
+        border-style: solid;
+        border-color: #00308F;
+        border-width: 5px;
+        border-radius: 15px 10px 25px 15px;
+        color: 6D9BC5;
+        font-family: 'Akaya Kanadaka';
+        font-size: 1.5vmin;
+}
+.container {
+        font-family: 'Akaya Kanadaka';
+        margin: 20px;
+        width: 95%;
+        font-size:1.9vmin;
+        display: inline-block;
+}
+.containerStanga {
+        background-color: #215D98;
+        color: #93C572;
+        float: left;
+        padding: 1%;
+        width: 47.5%;
+        border-style: solid;
+        border-color: #00308F;
+        border-width: 2px;
+        border-radius: 50px 20px 50px 20px;
+}
+.containerDreapta {
+        -webkit-transition: 0.5s;
+  transition: 0.5s;
+        background-color: #6D9BC5;
+        float: right;
+        display: inline-block;
+        padding: 1%;
+        width: 47.5%;
+        border-style: solid;
+        border-color: #00308F;
+        border-width: 2px;
+        border-radius: 20px 100px 25px 65px;
+}
+.butoane {
+        background-color: #00587a;
+        color: #FF5733;
+        border-style: solid;
+        border-color: #003c53;
+        border-width: 3px;
+        border-radius: 5px 15px 5px 15px;
+        cursor: pointer;
+        font-family: 'Akaya Kanadaka';
+        box-sizing: border-box;
+        font-size: 1.8vmin;
+        width: auto;
+        height: auto;
+}
+.butoane:hover{
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        background-color: #00acf0;
+        border-color: #2cc3ff;
+        color: #581845;
+}
+
+input[type=text], [type=date] {
+        margin: 0px 5px;
+  padding: 0.5% 1%;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  font-family: 'Barlow Condensed';
+}
+input[type=date]:hover {
+  border: 3px solid #555;
+}
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+.rainbow {
+        background-color: #5a80a3;
+        margin-top: 1%;
+        width: 95%;
+        height: 95%;
+        display:inline-block;
+        border-radius: 13px 13px 13px 13px;
+}
+.logo {
+        position: absolute;
+        height: 60%;
+        float: right;
+        right: 3%;
+        bottom: 5%;
+        padding: 1% 1% 1% 1%;
+}
+.footer {
+        background-color: #00308F;
+        background-image: linear-gradient(0deg, transparent 10%, rgba(255,255,255, 0.3));
+        position: relative;
+        font-family: 'Sofia';
+        left: -8px;
+        bottom: 0;
+        height: 14vh;
+        width: 99.7%;
+        padding: 0.3% 0% 0% 1%;
+        text-align: left;
+        border-style: solid;
+        border-color: #2cc3ff;
+        border-width: 5px 1px;
+        border-radius: 15px 15px 5px 5px;
+}
+.fData {
+        width: 35%;
+        display: block;
+                font-size: 2vmin;
+}
+.copyright {
+        position: absolute;
+        left: 50%;
+        bottom: 3.25%;
+        transform: translateX(-50%);
+}
+
+.tooltip {
+  position: relative;
+  color: #93C572;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 40vh;
+  background-color: #483d8b;
+  color: #00ff00;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: -13vh;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #483d8b transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 0.90;
+}
