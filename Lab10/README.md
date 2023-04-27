@@ -6,7 +6,7 @@ Singura parte din pagină care merită analizată și să fie văzută, după p�
 
 Rezolvarea labirintului presupune târârea a unei poze, care în acest fapt este logo-ul universității mele[^3], între pereții lui (pereții sunt niște bordere la div-uri) și dacă marginea pozei intră într-un perimetru de câțiva pixeli, se întrerupe funcția „drag”. Trebuie lucrat încă la detecția marginilor a imaginii, ca să putem contoriza de căte ori s-a făcut coliziune cu pereții labirintului și ca să nu treacă prin perete. Așadar, am făcut o implementare destul de robustă la acest aspect.
 
-Prin urmare, fișierul: [Lab10_TWBD.pdf](https://github.com/AmicuLL/html-js/blob/main/Lab10/Lab10_TWBD.pdf) are enumerate toate funcțiile paginii.
+Prin urmare, fișierul: [Lab10_TWBD.pdf](https://github.com/AmicuLL/projects/blob/main/Lab10/Lab10_TWBD.pdf) are enumerate toate funcțiile paginii.
 
 [^1]: [TWBD UTCN](https://etti.utcluj.ro/files/Acasa/Site/FiseDisciplina/TstRo/35.pdf)
 [^2]: [Wikipedia](https://en.wikipedia.org/wiki/Maze_generation_algorithm#Recursive_implementation)
