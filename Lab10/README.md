@@ -9,6 +9,9 @@ Solving the maze involves dragging an image, which in this case is the logo of m
 
 Consequently, the file: [Lab10_TWBD.pdf](https://github.com/AmicuLL/projects/blob/main/Lab10/Lab10_TWBD.pdf) lists all the functions of the page.
 
+
+
+
 RO:
 Motivul care a stat în spatele creării acestei pagini WEB este dat de tema de laborator din cadrul facultății, pentru materia: Tehnologii WEB si Baze de Date[^1].
 
