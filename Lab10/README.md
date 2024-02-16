@@ -1,4 +1,4 @@
-EN:
+### EN:
 The reason behind creating this WEB page is related to a laboratory theme within the university, for the course: Web Technologies and Databases[^1].
 
 A quick overview of the page: [JSFiddle](https://jsfiddle.net/amicull/24j69ysf/24/) . However, the page is not fully responsive (not at all, in fact), so I recommend running it on a full-HD resolution.
@@ -12,7 +12,7 @@ Consequently, the file: [Lab10_TWBD.pdf](https://github.com/AmicuLL/projects/blo
 
 
 
-RO:
+### RO:
 Motivul care a stat în spatele creării acestei pagini WEB este dat de tema de laborator din cadrul facultății, pentru materia: Tehnologii WEB si Baze de Date[^1].
 
 Un quick-view la pagină: [JSFiddle](https://jsfiddle.net/amicull/24j69ysf/24/) . Totuși, pagina nu este full-responsive (mai deloc chiar), prin urmare recomand rularea ei pe o rezoluție full-hd.
